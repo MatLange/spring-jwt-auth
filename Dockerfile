@@ -21,6 +21,7 @@ WORKDIR $HOME
 #RUN ./mvnw -B dependency:go-offline
 # Copy local code to the container image.
 ADD . $HOME
+RUN chmod +x ./mvnw
 # At this point, all dependencies are available in the local Maven repository.
 RUN ./mvnw -f $HOME/pom.xml clean package
 
